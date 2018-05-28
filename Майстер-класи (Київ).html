@@ -7,27 +7,15 @@
 </head>
 
 <body>
-<script type="text/javascript">
-function Input(){
-login_ok = false;
-user_name = "";
-password = "";
-user_name = prompt("Логін","");
-user_name = user_name.toLowerCase();
-password = prompt("Пароль","");
-password = password.toLowerCase();
-if (user_name=="login" && password=="pass") {
- login_ok=true;
- window.location="Авторизація.html";
-}
-if (user_name=="login2" && password=="pass2") {
- login_ok=true;
- window.location="Авторизація.html";
-}
-
-if (login_ok==false) alert("Невірний логін або пароль!");
-}
-</script>
+<div id="radiobells_container"><a href="https://www.radiobells.com/" rel="nofollow" id="RP_link">Онлайн радио</a> #radiobells_script_hash</div>
+	<link href="https://www.radiobells.com/script/style.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript">var rad_backcolor="#434242"; var rad_logo = "black"; var rad_autoplay = true; var rad_width = "responsive"; var rad_width_px = 330;var rad_stations =[['http://ep256.hostingradio.ru:8052/europaplus256.mp3','Европа плюс','europaplus'],
+	['http://air.radiorecord.ru:805/rr_320','Радио Рекорд','radiorecord'],
+	['http://nashe1.hostingradio.ru/nashe-128.mp3','Наше радио','nashe'],
+	['http://ic7.101.ru:8000/a100?userid=0','Авторадио','avtoradio'],
+	['http://ic7.101.ru:8000/a99?userid=0','Радио NRJ','nrj'],
+	['http://online-kissfm.tavrmedia.ua/KissFM_HD','Kiss FM','kissfm']];</script>
+	<script type="text/javascript" src="https://www.radiobells.com/script/v2_1.js" charset="UTF-8"></script>
 	
 <div class="div-wrapper">
 <div class="banner-bg">
@@ -38,23 +26,50 @@ if (login_ok==false) alert("Невірний логін або пароль!");
 <li><a href="Про нас.html" >Про нас</a></li>
 
 </ul>
-<div align="right">
- <form>
-  <input type="button" value="Авторизуватися" onClick="Input()">
- </form>
-</div>
 <br><br />
+<br><br />
+
 <p class="image-1"><img src="images/image-50.png" alt="" title="image 50" height="55" width="375" />
 </div>
 
-</div>
 <div class="image-holder"></div>
 </div>
 <div class="spacer" style="height: 0.1px;"></div>
 <div class="div-wrapper-body">
 <p><img src="images/body-top.jpg" alt="body" height="45" width="698" /></p>
 <div class="left-body-wrapper">
-<p class="heading">Оберіть потрібний розділ</p>
+<p class="heading">
+<script>
+var chr = -1;
+var txt = 'Оберіть потрібний розділ:  '
+var l = txt.length
+var p = "_"
+function changetext()
+{
+chr++;
+t = document.all["text"].innerHTML
+tt = t.substring(0,t.length-p.length)
+if(txt.charAt(chr)!="<")
+{
+document.all["text"].innerHTML= tt + txt.charAt(chr) + p
+}
+else {
+document.all["text"].innerHTML= tt + txt.substring(chr, chr+4) + p
+chr=chr+3 
+}
+setTimeout("changetext()", 100)
+}
+function str(num) {
+var s = ""
+for(i=0; i<num; i++)
+{  s = s + " "  }
+return s  }
+
+</script>
+
+<body onload="changetext()">
+<FONT id="text" ></FONT>
+</p>
 <ul>
 <li><a href="Новини освіти та науки.html">Новини освіти та науки</a></li>
 <br><br />
@@ -79,7 +94,53 @@ if (login_ok==false) alert("Невірний логін або пароль!");
 </ul>
 </div>
 <div class="right-body-wrapper">
-<p class="black-heading">Майстер-класи (Київ) </p>
+<p class="black-heading">
+<script type="text/javascript" language="JavaScript1.2">
+var message="Майстер-класи Києва"
+var neonbasecolor="#990000"
+var neontextcolor="red"
+var neontextcolor2="#FFFFA8"
+var flashspeed=200
+var flashingletters=2
+var flashingletters2=1
+var flashpause=0
+var n=0
+if (document.all||document.getElementById){
+   document.write('<font color="'+neonbasecolor+'" size=+2>')
+   for (m=0;m<message.length;m++)
+    document.write('<span id="neonlight'+m+'">'+message.charAt(m)+'</span>')
+   document.write('</font>')
+}
+else
+   document.write(message)
+function crossref(number){
+   var crossobj=document.all? eval("document.all.neonlight"+number) : document.getElementById("neonlight"+number)
+   return crossobj
+}
+function neon(){
+   //Change all letters to base color
+   if (n==0){
+    for (m=0;m<message.length;m++)
+    crossref(m).style.color=neonbasecolor
+    }
+   crossref(n).style.color=neontextcolor
+   if (n>flashingletters-1) crossref(n-flashingletters).style.color=neontextcolor2
+   if (n>(flashingletters+flashingletters2)-1) crossref(n-flashingletters-flashingletters2).style.color=neonbasecolor
+   if (n<message.length-1) n++
+   else{
+    n=0
+    clearInterval(flashing)
+    setTimeout("beginneon()",flashpause)
+    return
+    }
+}
+function beginneon(){
+   if (document.all||document.getElementById)
+   flashing=setInterval("neon()",flashspeed)
+}
+beginneon()
+</script>
+ </p>
 <p class="float-right"><img src="images/body-design.gif" alt="design" height="30" width="298" /></p>
 <div class="spacer">&nbsp;</div>
 <p class="image-1"><img src="images/image-17.jpg" alt="" title="image 17" height="116" width="192" /><br />
